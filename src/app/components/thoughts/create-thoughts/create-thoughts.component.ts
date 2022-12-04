@@ -1,6 +1,6 @@
 import { Thought } from './../../../interfaces/thought';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-create-thoughts',
@@ -8,6 +8,7 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./create-thoughts.component.css']
 })
 export class CreateThoughtsComponent {
+  cardTemplates : any[] = []
   pensamento: Thought = {
     id: "1",
     conteudo: "aprendendo angular",
@@ -15,9 +16,21 @@ export class CreateThoughtsComponent {
     modelo: ""
   }
 
-  constructor(
-    private fb: FormBuilder
-  ){}
-  ngOnInit(): void {}
+  constructor(private fb: FormBuilder){}
+  ngOnInit(): void { }
 
+  public fg: FormGroup = this.fb.group({
+    pensamento: [null, Validators.required],
+    autoria: [null, Validators.required],
+    cardType: ["modelo1"]
+  })
+
+  createThought() {
+    console.log("pensamento criado")
+    console.log(this.fg.value)
+  }
+
+  cancelThought() {
+    console.log("foi cancelado")
+  }
 }

@@ -3,21 +3,41 @@
 
 <section class="container criar-pensamentos ff-inter">
   <header class="header">
-    <h2>Adicione um <br>pensamento novo:</h2>
+    <h2>Adicione um <br />pensamento novo:</h2>
   </header>
 
-  <form action="">
+  <form action="submit" [formGroup]="fg">
     <label for="pensamento">Pensamento</label>
-    <input type="textarea" class="input" id="pensamento" name="pensamento" placeholder="digite o pensamento" value="pensamento.conteudo">
+    <input
+      type="textarea"
+      class="input"
+      id="pensamento"
+      name="pensamento"
+      placeholder="digite o pensamento"
+      formControlName="pensamento"
+    />
 
     <label for="autoria">Autoria ou Fonte</label>
-    <input type="text" class="input" id="autoria" name="autoria" placeholder="digite a autoria ou fonte">
+    <input
+      type="text"
+      class="input"
+      id="autoria"
+      name="autoria"
+      placeholder="digite a autoria ou fonte"
+      formControlName="autoria"
+    />
 
     <label for="modelo">Selecione o modelo do card:</label>
     <div class="container-radio">
       <div class="radio-modelo">
         <label for="modelo1">
-          <input type="radio" id="modelo1" value="modelo1" name="modelo-card">
+          <input
+            type="radio"
+            id="modelo1"
+            name="cardType"
+            value="modelo1"
+            formControlName="cardType"
+          />
 
           <div class="custom-radio">
             <span></span>
@@ -26,15 +46,23 @@
         </label>
         Prévia:
         <div class="modelo modelo1 ff-roboto-mono">
-          <img src="../../../../assets/images/modelo1.png" alt="Aspas azuis">
-          <p class="conteudo">Aqui vai o conteúdo</p>
-          <p class="conteudo"><b>Aqui vai a autoria</b></p>
+          <img src="../../../../assets/images/modelo1.png" alt="Aspas azuis" />
+          <p class="conteudo">{{ this.fg.get("pensamento")?.value }}</p>
+          <p class="conteudo">
+            <b>{{ this.fg.get("autoria")?.value }}</b>
+          </p>
         </div>
       </div>
 
       <div class="radio-modelo">
         <label for="modelo2">
-          <input type="radio" id="modelo2" value="modelo2" name="modelo-card">
+          <input
+            type="radio"
+            id="modelo2"
+            name="cardType"
+            value="modelo2"
+            formControlName="cardType"
+          />
 
           <div class="custom-radio">
             <span></span>
@@ -43,15 +71,26 @@
         </label>
         Prévia:
         <div class="modelo modelo2 ff-roboto-mono">
-          <img src="../../../../assets/images/modelo2.png" alt="Aspas azul claro">
-          <p class="conteudo">Aqui vai o conteúdo</p>
-          <p class="conteudo"><b>Aqui vai a autoria</b></p>
+          <img
+            src="../../../../assets/images/modelo2.png"
+            alt="Aspas azul claro"
+          />
+          <p class="conteudo">{{ this.fg.get("pensamento")?.value }}</p>
+          <p class="conteudo">
+            <b>{{ this.fg.get("autoria")?.value }}</b>
+          </p>
         </div>
       </div>
 
       <div class="radio-modelo">
         <label for="modelo3">
-          <input type="radio" id="modelo3" value="modelo3" name="modelo-card">
+          <input
+            type="radio"
+            id="modelo3"
+            name="cardType"
+            value="modelo3"
+            formControlName="cardType"
+          />
 
           <div class="custom-radio">
             <span></span>
@@ -60,16 +99,18 @@
         </label>
         Prévia:
         <div class="modelo modelo3 ff-roboto-mono">
-          <img src="../../../../assets/images/modelo3.png" alt="Aspas verdes">
-          <p class="conteudo">Aqui vai o conteúdo</p>
-          <p class="conteudo"><b>Aqui vai a autoria</b></p>
+          <img src="../../../../assets/images/modelo3.png" alt="Aspas verdes" />
+          <p class="conteudo">{{ this.fg.get("pensamento")?.value }}</p>
+          <p class="conteudo">
+            <b>{{ this.fg.get("autoria")?.value }}</b>
+          </p>
         </div>
       </div>
     </div>
 
     <div class="acoes">
-      <button class="botao">Salvar</button>
-      <button class="botao">Cancelar</button>
+      <button (click)="createThought()" class="botao">Salvar</button>
+      <button (click)="cancelThought()" class="botao">Cancelar</button>
     </div>
   </form>
 </section>
