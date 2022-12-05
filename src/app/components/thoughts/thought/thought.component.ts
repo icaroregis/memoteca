@@ -11,4 +11,12 @@ export class ThoughtComponent {
 
   constructor() { }
   ngOnInit(): void { }
+
+  public thoughtCardWidth(): string {
+    if(this.pensamento.conteudo.length >= 256) {
+      return "pensamento-g";
+    }
+
+    return "pensamento-p";
+  }
 }

@@ -1,4 +1,7 @@
-<div class="pensamento {{ pensamento.modelo }} ff-roboto-mono pesamento-p">
+<div
+  class="pensamento {{ pensamento.modelo }} ff-roboto-mono"
+  [ngClass]="thoughtCardWidth()"
+>
   <img
     src="../../../../assets/images/{{ pensamento.modelo }}.png"
     alt="Aspas coloridas"
