@@ -1,14 +1,14 @@
 import { Thought } from './../../../interfaces/thought';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-thoughts',
   templateUrl: './create-thoughts.component.html',
   styleUrls: ['./create-thoughts.component.css']
 })
 export class CreateThoughtsComponent {
-  cardTemplates : any[] = []
+  cardTemplates : Thought[] = [];
   pensamento: Thought = {
     id: "1",
     conteudo: "aprendendo angular",
@@ -16,7 +16,7 @@ export class CreateThoughtsComponent {
     modelo: ""
   }
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder, private router: Router){}
   ngOnInit(): void { }
 
   public fg: FormGroup = this.fb.group({
@@ -31,6 +31,6 @@ export class CreateThoughtsComponent {
   }
 
   cancelThought() {
-    console.log("foi cancelado")
+    this.router.navigate(["/list-thought"])
   }
 }
