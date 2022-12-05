@@ -1,1 +1,27 @@
-<p>thought works!</p>
+<div class="pensamento {{ pensamento.modelo }} ff-roboto-mono pesamento-p">
+  <img
+    src="../../../../assets/images/{{ pensamento.modelo }}.png"
+    alt="Aspas coloridas"
+  />
+
+  <p class="conteudo">{{ pensamento.conteudo }}</p>
+  <p class="conteudo">
+    <b>{{ pensamento.autoria }}</b>
+  </p>
+
+  <div class="acoes">
+    <button class="botao-editar">
+      <img
+        src="../../../../assets/images/icone-editar.png"
+        alt="Ícone de edição"
+      />
+    </button>
+
+    <button class="botao-excluir">
+      <img
+        src="../../../../assets/images/icone-excluir.png"
+        alt="Ícone de deletar"
+      />
+    </button>
+  </div>
+</div>

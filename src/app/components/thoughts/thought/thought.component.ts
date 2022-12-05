@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-thought',
@@ -6,8 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./thought.component.css']
 })
 export class ThoughtComponent {
-  constructor() { }
+  /* Comunicação de pai pra filho. Aqui no caso estamos recebendo dados do pai, para isso basta colocar o decorator @input na frente do método da classe. Depois podemos pegar esses dados e acessá-los através do double mustache no nosso html para mostrar os dados capturados */
+  @Input() pensamento: any;
 
-  ngOnInit(): void {
-  }
+  constructor() { }
+  ngOnInit(): void { }
 }
