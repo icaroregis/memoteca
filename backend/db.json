@@ -1,40 +1,16 @@
 {
   "thoughts": [
     {
-      "id": 1,
-      "conteudo": "O SENHOR é o meu pastor; nada me faltará.",
-      "autoria": "Salmos 23:1-6",
-      "modelo": "modelo1"
+      "conteudo": "O Senhor é minha luz e minha salvação, a quem temerei?",
+      "autoria": "Salmos 26(27):1",
+      "modelo": "modelo1",
+      "id": 1
     },
     {
-      "id": 2,
-      "conteudo": "Porque a sua ira dura só um momento; no seu favor está a vida; o choro pode durar uma noite, mas a alegria vem pela manhã.",
-      "autoria": "Salmos 30:5",
-      "modelo": "modelo2"
-    },
-    {
-      "id": 3,
-      "conteudo": "Esperei com paciência no SENHOR, e ele se inclinou para mim, e ouviu o meu clamor.",
-      "autoria": "Salmos 40:1-3",
-      "modelo": "modelo3"
-    },
-    {
-      "conteudo": "O senhor é o meu pastor e nada me faltará",
-      "autoria": "Jeremias",
-      "modelo": "modelo3",
-      "id": 4
-    },
-    {
-      "conteudo": "O senhor é o meu pastor e nada me faltará",
-      "autoria": "teste",
+      "conteudo": "Uma só coisa peço ao Senhor e a peço incessantemente: é habitar na casa do Senhor todos os dias de minha vida, para admirar aí a beleza do Senhor e contemplar o seu santuário.",
+      "autoria": "Salmos 26(27):4",
       "modelo": "modelo2",
-      "id": 5
-    },
-    {
-      "conteudo": "O Senhor é meu pastor e nada me faltará.",
-      "autoria": "fdfdfdf",
-      "modelo": "modelo3",
-      "id": 6
+      "id": 2
     }
   ]
 }
