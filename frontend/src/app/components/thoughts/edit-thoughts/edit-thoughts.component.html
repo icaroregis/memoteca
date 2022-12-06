@@ -1,1 +1,126 @@
-<p>edit-thoughts works!</p>
+<!-- () o parênteses serve para passarmos um evento do template para o ts. Evento no html dispara comportamento no ts -->
+<!-- [] os colchetes serve para passarmos valores existentes no ts para o template. Valor do ts é usado no html. -->
+
+<section class="container editar-pensamentos ff-inter">
+  <header class="header">
+    <h2>Adicione um <br />pensamento novo:</h2>
+  </header>
+
+  <form action="submit" [formGroup]="fg">
+    <label for="pensamento">Pensamento</label>
+    <input
+      type="textarea"
+      class="input"
+      id="pensamento"
+      name="pensamento"
+      placeholder="digite o pensamento"
+      formControlName="pensamento"
+      [(ngModel)]="thought.conteudo"
+    />
+
+    <label for="autoria">Autoria ou Fonte</label>
+    <input
+      type="text"
+      class="input"
+      id="autoria"
+      name="autoria"
+      placeholder="digite a autoria ou fonte"
+      formControlName="autoria"
+      [(ngModel)]="thought.autoria"
+    />
+
+    <label for="modelo">Selecione o modelo do card:</label>
+    <div class="container-radio">
+      <div class="radio-modelo">
+        <label for="modelo1">
+          <input
+            type="radio"
+            id="modelo1"
+            name="cardType"
+            value="modelo1"
+            formControlName="cardType"
+            [(ngModel)]="thought.modelo"
+          />
+
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 1</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo1 ff-roboto-mono">
+          <img src="../../../../assets/images/modelo1.png" alt="Aspas azuis" />
+          <p class="conteudo">{{ this.fg.get("pensamento")?.value }}</p>
+          <p class="conteudo">
+            <b>{{ this.fg.get("autoria")?.value }}</b>
+          </p>
+        </div>
+      </div>
+
+      <div class="radio-modelo">
+        <label for="modelo2">
+          <input
+            type="radio"
+            id="modelo2"
+            name="cardType"
+            value="modelo2"
+            formControlName="cardType"
+            [(ngModel)]="thought.modelo"
+          />
+
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 2</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo2 ff-roboto-mono">
+          <img
+            src="../../../../assets/images/modelo2.png"
+            alt="Aspas azul claro"
+          />
+          <p class="conteudo">{{ this.fg.get("pensamento")?.value }}</p>
+          <p class="conteudo">
+            <b>{{ this.fg.get("autoria")?.value }}</b>
+          </p>
+        </div>
+      </div>
+
+      <div class="radio-modelo">
+        <label for="modelo3">
+          <input
+            type="radio"
+            id="modelo3"
+            name="cardType"
+            value="modelo3"
+            formControlName="cardType"
+            [(ngModel)]="thought.modelo"
+          />
+
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 3</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo3 ff-roboto-mono">
+          <img src="../../../../assets/images/modelo3.png" alt="Aspas verdes" />
+          <p class="conteudo">{{ this.fg.get("pensamento")?.value }}</p>
+          <p class="conteudo">
+            <b>{{ this.fg.get("autoria")?.value }}</b>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="acoes">
+      <button type="submit" (click)="editThought()" class="botao">
+        Salvar
+      </button>
+
+      <button type="submit" (click)="cancelOperation()" class="botao">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</section>

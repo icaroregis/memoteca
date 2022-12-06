@@ -22,11 +22,10 @@ export class DeleteThoughtsComponent {
   }
 
   getBuId() {
-    const id = this.activeRouter.snapshot.params['id'];
-    console.log(id, 'id de teste');
+    const id = this.activeRouter.snapshot.paramMap.get('id');
     this.service.fetchThoughtById(Number(id)).subscribe({
-      next: (thought) => {
-        this.thought = thought;
+      next: (response) => {
+        this.thought = response;
       },
       error: (err: any) => {
         throw err;
@@ -35,8 +34,7 @@ export class DeleteThoughtsComponent {
   }
 
   deleteThought() {
-    if (this.thought) {
-      console.log(this.thought.id);
+    if (this.thought.id) {
       this.service.deleteThoughts(this.thought.id).subscribe({
         next: () => {
           this.router.navigate(['/list-thought']);

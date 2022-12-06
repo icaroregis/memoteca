@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { EditThoughtsComponent } from './components/thoughts/edit-thoughts/edit-thoughts.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
 
 // pages
 import { CreateThoughtsComponent } from './components/thoughts/create-thoughts/create-thoughts.component';
@@ -12,7 +13,14 @@ const routes: Routes = [
   { path: '', redirectTo: 'list-thought', pathMatch: 'full' },
   { path: 'create-thought', component: CreateThoughtsComponent },
   { path: 'list-thought', component: ListThoughtsComponent },
-  { path: 'list-thought/:id', component: DeleteThoughtsComponent },
+  {
+    path: 'list-thought/delete-thought/:id',
+    component: DeleteThoughtsComponent,
+  },
+  {
+    path: 'list-thought/edit-thought/:id',
+    component: EditThoughtsComponent,
+  },
 ];
 
 @NgModule({
