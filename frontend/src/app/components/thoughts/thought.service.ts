@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import {  Observable } from 'rxjs';
 import { Thought } from 'src/app/interfaces/thought';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import {  Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,16 @@ export class ThoughtService {
 
   createThought(thought: Thought): Observable<Thought> {
     return this.http.post<Thought>(this.api, thought)
+  }
+
+  deleteThoughts(id: number): Observable<Thought> {
+    const url: string = `${this.api}/${id}`
+    return this.http.delete<Thought>(url)
+  }
+
+  fetchThoughtById(id: number): Observable<Thought> {
+    const url: string = `${this.api}/${id}`
+    return this.http.get<Thought>(url)
   }
 
 }
