@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 //Components
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { DeleteThoughtsComponent } from './components/thoughts/delete-thoughts/d
 import { EditThoughtsComponent } from './components/thoughts/edit-thoughts/edit-thoughts.component';
 import { ListThoughtsComponent } from './components/thoughts/list-thoughts/list-thoughts.component';
 import { ThoughtComponent } from './components/thoughts/thought/thought.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { ThoughtComponent } from './components/thoughts/thought/thought.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

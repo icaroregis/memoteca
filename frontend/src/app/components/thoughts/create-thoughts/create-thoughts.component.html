@@ -109,7 +109,9 @@
     </div>
 
     <div class="acoes">
-      <button (click)="createThought()" class="botao">Salvar</button>
+      <button type="submit" (click)="createThought($event)" class="botao">
+        Salvar
+      </button>
       <button (click)="cancelThought()" class="botao">Cancelar</button>
     </div>
   </form>

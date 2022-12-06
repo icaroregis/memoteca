@@ -1,3 +1,4 @@
+import { ThoughtService } from './../thought.service';
 import { Thought } from './../../../interfaces/thought';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
@@ -8,15 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-thoughts.component.css']
 })
 export class CreateThoughtsComponent {
-  cardTemplates : Thought[] = [];
-  pensamento: Thought = {
-    id: "1",
-    conteudo: "aprendendo angular",
-    autoria: "Dev",
-    modelo: ""
-  }
-
-  constructor(private fb: FormBuilder, private router: Router){}
+  constructor(private fb: FormBuilder, private router: Router, private service: ThoughtService){}
   ngOnInit(): void { }
 
   public fg: FormGroup = this.fb.group({
@@ -25,12 +18,23 @@ export class CreateThoughtsComponent {
     cardType: ["modelo1"]
   })
 
-  createThought() {
-    console.log("pensamento criado")
-    console.log(this.fg.value)
+  createThought(e: any) {
+    e.preventDefault();
+
+    const objeto: Thought = {
+      conteudo: this.fg.get("pensamento")?.value,
+      autoria: this.fg.get("autoria")?.value,
+      modelo: this.fg.get("cardType")?.value
+    }
+
+    if(objeto) {
+      this.service.createThought(objeto).subscribe(() => {
+        this.router.navigate(["/list-thought"]);
+      })
+    }
   }
 
   cancelThought() {
-    this.router.navigate(["/list-thought"])
+    this.router.navigate(["/list-thought"]);
   }
 }
